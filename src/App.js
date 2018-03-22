@@ -3,28 +3,45 @@ import logo from './logo.svg';
 import './App.css';
 import Particles from 'react-particles-js';
 
+import { Route, BrowserRouter, withRouter, Switch } from 'react-router-dom';
+// import { AnimatedSwitch } from 'react-router-transition';
 
+import Home from './components/Home/Home'
+import Portfolio from './components/Portfolio/Portfolio'
+import About from './components/About/About'
+import Contact from './components/Contact/Contact'
+
+
+import Navbar from './components/Navbar/Navbar'
 
 class App extends Component {
   render() {
     return (
-      <div id="bg">
-             <div className="content"> 
-              <h2>Hello, I'm Cecily.</h2>
-              <p>Here's my super awesome impressive website.</p>
-            </div>
-              <Particles 
+      <div>
+          <div className='container'>
+            <Navbar />
+
+            <Switch>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/portfolio' component={Portfolio} />
+                <Route exact path='/about' component={About} />
+                <Route exact path='/contact' component={Contact} />
+            </Switch>         
+
+          </div>
+          
+          <Particles 
               className="particles" params={{
                 particles: {
                   number: {
-                    value: 100,
+                    value: 10,
                     density: {
                       enable: true,
-                      value_area: 700
+                      value_area: 1000
                     }
                   },
                   color: {
-                    value: ["#ffffff","#ff1493"]
+                    value: ["#ffa500","#ffff00"]
                   },
                   shape: {
                     type: "circle",
@@ -33,7 +50,7 @@ class App extends Component {
                       color: "#ffffff"
                     },
                     polygon: {
-                      "nb_sides": 5
+                      "nb_sides": 0
                     },
                     image: {
                       src: "img/github.svg",
@@ -42,17 +59,17 @@ class App extends Component {
                     }
                   },
                   opacity: {
-                    value: 0.7,
+                    value: 0.4,
                     random: true,
                     anim: {
                       enable: true,
-                      speed: 0.5,
-                      opacity_min: 0.1,
+                      speed: 0.3,
+                      opacity_min: 0.05,
                       sync: false
                     }
                   },
                   "size": {
-                    "value": 2,
+                    "value": 10,
                     "random": true,
                     "anim": {
                       "enable": true,
@@ -71,7 +88,7 @@ class App extends Component {
                   "move": {
                     "enable": true,
                     "speed": 0.2,
-                    "direction": "none",
+                    "direction": "top",
                     "random": true,
                     "straight": false,
                     "out_mode": "out",
@@ -125,7 +142,9 @@ class App extends Component {
                 "retina_detect": true
             	}}
             />
+
       </div>
+             
     );
   }
 }
