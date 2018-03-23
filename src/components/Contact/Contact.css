@@ -1,0 +1,60 @@
+#contact-container input, #contact-container textarea {
+        position: relative;
+        display: block;
+        margin: 30px 0;
+        font-size: 20px;
+        padding: 10px;
+        transition: all 0.25s;
+        box-shadow: 1px 1px 8px rgba(0,0,0,0.2);
+        border: 0;
+        border-radius: 3px;
+        width: 400px;
+        z-index: 100;
+}
+
+#contact-container input:focus, #contact-container textarea:focus  {
+    outline: none;
+    /* transform-origin: left; */
+    transform: scale(1.03);
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.5);
+}
+
+
+.input-field {
+    position: relative;
+}
+
+.input-field div.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(160, 63, 80, 0.5);
+    z-index: 1;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    transition: all 0.25s;
+}
+
+input:focus + div.label + div.dot, textarea:focus + div.label + div.dot {
+    background: rgba(160, 63, 80, 0.5);
+    transform: scale(3);
+}
+
+.label {
+    position: absolute;
+    opacity: 0;
+    top: -22px;
+    transition: all 0.25s;
+    font-size: 14px;
+    font-family: "IBM Plex Sans";
+    font-weight: bold;
+    z-index: 10;
+}
+
+input:focus + div.label, textarea:focus + div.label {
+    opacity: 1;
+}
+
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder, textarea:focus:-moz-placeholder { color:transparent; }
