@@ -1,19 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+@import url('https://fonts.googleapis.com/css?family=Lily+Script+One');
+
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+
+
+
+body {
+  color: rgb(255, 252, 235);
+  font-family: "IBM Plex Serif";
+}
+
+/* purple color - $9f3f50 */
+/* YELLOW - faf284 */
+
+#home-container a {
+  color: #fffab7;
+  text-decoration: none;
+  background-image: linear-gradient(120deg, rgba(160, 63, 80, 0.8) 0%, rgba(160, 63, 80, 0.8) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  text-shadow: 1px 1px 1px rgba(160,63,80,0.1);
+  transition: background-size 0.25s ease-in, color 0.25s ease-in;
+}
+
+#home-container a:hover {
+  color: #faf284;
+  background-size: 100% 88%;
+  background-image: linear-gradient(120deg, rgba(160, 63, 80, 0.5) 0%, rgba(160, 63, 80, 0.5) 100%);
+}
+
+
 .particles {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #24142e;
+  background-color: #c9505a;
+  background: linear-gradient(#c0505a, #c96050);
+  z-index: -1;
 }
 
+.subhead {
+  font-family: "IBM Plex Serif";
+  font-size: 40px;
+  font-weight: bold;
+  color: #ffda83;
+  line-height: 1;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
 
-.content {
-  margin: auto;
-  position: absolute;
-  top: 25px;
-  right: 50px;
-  left: 50px;
-  color: #fff;
-  z-index: 10;
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 25px;
 }
