@@ -3,14 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import Particles from 'react-particles-js';
 
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Route, BrowserRouter, withRouter, Switch } from 'react-router-dom';
-// import { AnimatedSwitch } from 'react-router-transition';
 
 import Home from './components/Home/Home'
 import Portfolio from './components/Portfolio/Portfolio'
 import About from './components/About/About'
 import Contact from './components/Contact/Contact'
 
+import RouterTransitions from './RouterTransitions.scss'
 
 import Navbar from './components/Navbar/Navbar'
 
@@ -18,18 +19,36 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Route render={({ location }) => (
           <div className='container'>
-            <Navbar />
+          <Navbar />
 
-            <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/portfolio' component={Portfolio} />
-                <Route exact path='/about' component={About} />
-                <Route exact path='/contact' component={Contact} />
-            </Switch>         
+          <TransitionGroup>
+            <CSSTransition
+                key={location.key}
+                classNames={{
+                          appear: RouterTransitions.appear,
+                          appearActive: RouterTransitions.appearActive,
+                          enter: RouterTransitions.enter,
+                          enterActive: RouterTransitions.enterActive,
+                          exit: RouterTransitions.exit,
+                          exitActive: RouterTransitions.exitActive
+                      }}
+                timeout={300}>
+              <Switch location={location}>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='/portfolio' component={Portfolio} />
+                  <Route exact path='/about' component={About} />
+                  <Route exact path='/contact' component={Contact} />
+              </Switch>         
+            </CSSTransition>
+          </TransitionGroup>
 
-          </div>
-          
+        </div>
+
+        )}
+        />
+                
           <Particles 
               className="particles" params={{
                 particles: {
