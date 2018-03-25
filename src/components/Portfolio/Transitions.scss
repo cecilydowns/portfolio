@@ -1,0 +1,29 @@
+.enter {
+    opacity: 0.01;
+    transform: rotateY(90deg);
+    
+    &.enterActive {
+      transition: opacity 0.5s ease-in, transform 0.5s;
+      opacity: 1;
+      transform: scale(1)
+    }
+  }
+  
+.exit {
+    opacity: 1;
+
+    &.exitActive {
+        transition: opacity 0.5s ease-in, transform 0.5s;
+        opacity: 0.01;
+        transform: rotateY(90deg);
+    }
+}
+
+.appear {
+    opacity: 0.01;
+
+    &.appearActive {
+        transition: all 0.5s ease-in;
+        opacity: 1;
+    }
+}

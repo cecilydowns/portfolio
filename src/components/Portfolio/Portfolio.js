@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import './Portfolio.css';
 import PortfolioItem from './PortfolioItem'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import Transitions from './Transitions.scss';
 
 class Portfolio extends Component {
 
@@ -47,7 +48,14 @@ class Portfolio extends Component {
             return (
                 <CSSTransition
                     timeout={1000}
-                    classNames="portfolio-item"
+                    classNames={{
+                        appear: Transitions.appear,
+                        appearActive: Transitions.appearActive,
+                        enter: Transitions.enter,
+                        enterActive: Transitions.enterActive,
+                        exit: Transitions.exit,
+                        exitActive: Transitions.exitActive
+                    }}
                     key={item.id}
                 >
                     <PortfolioItem
