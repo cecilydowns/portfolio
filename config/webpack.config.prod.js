@@ -184,6 +184,7 @@ module.exports = {
                         modules: true,
                         minimize: true,
                         sourceMap: shouldUseSourceMap,
+                        camelCase: true
                       },
                     },
                     {
