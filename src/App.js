@@ -10,6 +10,9 @@ import Home from './components/Home/Home'
 import Portfolio from './components/Portfolio/Portfolio'
 import About from './components/About/About'
 import Contact from './components/Contact/Contact'
+import PortfolioItem from './components/PortfolioItem/PortfolioItem'
+
+import ContactTemp from './components/ContactTemp/Contact'
 
 import RouterTransitions from './RouterTransitions.scss'
 
@@ -22,27 +25,30 @@ class App extends Component {
         <Route render={({ location }) => (
           <div className='container'>
           <Navbar />
-
-          <TransitionGroup>
-            <CSSTransition
-                key={location.key}
-                classNames={{
-                          appear: RouterTransitions.appear,
-                          appearActive: RouterTransitions.appearActive,
-                          enter: RouterTransitions.enter,
-                          enterActive: RouterTransitions.enterActive,
-                          exit: RouterTransitions.exit,
-                          exitActive: RouterTransitions.exitActive
-                      }}
-                timeout={300}>
-              <Switch location={location}>
-                  <Route exact path='/' component={Home} />
-                  <Route exact path='/portfolio' component={Portfolio} />
-                  <Route exact path='/about' component={About} />
-                  <Route exact path='/contact' component={Contact} />
-              </Switch>         
-            </CSSTransition>
-          </TransitionGroup>
+          <div>
+            <TransitionGroup>
+              <CSSTransition
+                  key={location.key}
+                  classNames={{
+                            appear: RouterTransitions.appear,
+                            appearActive: RouterTransitions.appearActive,
+                            enter: RouterTransitions.enter,
+                            enterActive: RouterTransitions.enterActive,
+                            exit: RouterTransitions.exit,
+                            exitActive: RouterTransitions.exitActive
+                        }}
+                  timeout={250}>
+                <Switch location={location}>
+                    <Route exact path='/' component={Home} />
+                    <Route exact path='/portfolio' component={Portfolio} />
+                    <Route exact path='/about' component={About} />
+                    <Route exact path='/contact' component={ContactTemp} />
+                    <Route exact path='/contactform' component={Contact} />
+                    <Route path='/portfolio/:slug' component={PortfolioItem}  />
+                </Switch>         
+              </CSSTransition>
+            </TransitionGroup>
+          </div>
 
         </div>
 
@@ -53,7 +59,7 @@ class App extends Component {
               className="particles" params={{
                 particles: {
                   number: {
-                    value: 10,
+                    value: 7,
                     density: {
                       enable: true,
                       value_area: 1000
@@ -82,13 +88,13 @@ class App extends Component {
                     random: true,
                     anim: {
                       enable: true,
-                      speed: 0.3,
+                      speed: 0.2,
                       opacity_min: 0.05,
                       sync: false
                     }
                   },
                   "size": {
-                    "value": 10,
+                    "value": 12,
                     "random": true,
                     "anim": {
                       "enable": true,
