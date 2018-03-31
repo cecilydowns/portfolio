@@ -1,0 +1,143 @@
+@import '../../variables.scss';
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex-container-bottom {
+    display: flex;
+    flex-direction: row-reverse;
+    @media screen and (max-width: 700px){
+        flex-wrap: wrap;
+    }
+}
+
+.right {
+    flex: 1;
+}
+
+.left {
+    width: 250px;
+    margin-left: 30px;
+    @media screen and (max-width: 620px){
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+}
+
+.profile {
+    border: 8px solid rgba($main-purple,.5);
+    border-radius: 50%;
+    width: 195px;
+    height: 195px;
+    z-index: 10;
+}
+
+.skills-container {
+    flex: 1;
+    width: 100%;
+}
+
+.skills {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: 20px;
+    font-family: "IBM Plex Sans";
+    @media screen and (max-width: 900px){
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      @media screen and (max-width: 800px){
+        grid-template-columns: 1fr 1fr;
+      }
+}
+
+
+
+.heading {
+    font-size: 30px;
+}
+
+.subhead {
+    font-size: 20px;
+}
+
+h3.cursive {
+    font-family: "Lily Script One";
+    font-weight: normal;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 35px;
+}
+
+.resume {
+    width: 200px;
+    border: 8px solid rgba($main-purple,.5);
+}
+
+.resume-container {
+    margin-right: 50px;
+    @media screen and (max-width: 700px){
+        margin-right: 0;
+        width: 100%;
+      }
+}
+
+.skills li {
+    opacity: 0;
+    transform: translateY(-10px);
+    white-space: nowrap;
+
+    @for $i from 1 through 9 {
+        &:nth-child(#{$i}) {
+            animation: loadskills 0.25s 1 forwards;
+            animation-delay: 0.04s * $i;
+        }
+
+        &:nth-child(#{$i}) span {
+                animation: loaddots 0.25s 1 forwards;
+                animation-delay: 0.1s + (0.04s * $i);
+        }
+    }
+
+    .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: rgba($main-yellow,.7);
+        border-radius: 50%;
+        margin-right: 3px;
+        transform: scale(0.2);
+     }
+
+
+}
+
+
+@keyframes loadskills {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes loaddots {
+    from {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
