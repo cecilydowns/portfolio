@@ -1,0 +1,178 @@
+@import '../../variables.scss';
+
+.description {
+    font-size: 20px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+}
+
+a.button {
+    display: inline-block;
+    background: $main-yellow;
+    color: #000;
+    font-family: "IBM Plex Sans";
+    font-size: 18px;
+    font-weight: bold;
+    padding: 7px;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-shadow: none;
+    transition: all 0.1s;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+a.button:hover {
+    color: #000;
+    background: darken($main-yellow,5);
+    transform: scale(1.05);
+}
+
+
+.content {
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.contentHeading {
+    background: $main-purple;
+    padding: 15px;
+}
+
+.contentHeading h3 {
+    margin: 0;
+    font-family: "Lily Script One";
+    font-weight: normal;
+    font-size: 22px;
+}
+
+.contentBody {
+    background: #fff;
+    color: #000;
+    padding: 15px;
+}
+
+.highlights {
+    margin: 15px 0;
+    border-radius: 4px;
+    overflow: hidden;
+    flex: 2 2 300px;
+}
+
+.highlightsBody {
+    background: rgba($main-purple,.7);
+    padding: 15px;
+}
+
+.highlightsHeading {
+    background: $main-purple;
+    padding: 15px;
+}
+
+
+.highlights ul {
+    margin: 0;
+    padding: 0;
+}
+
+.highlights ul li {
+    box-sizing: border-box;
+    list-style-type: none;
+    background: url('/images/dot.png');
+    background-size: 12px;
+    background-position: left 0 top 5px;
+    background-repeat: no-repeat;
+    margin: 0 0 10px;
+    padding: 0 10px 0 25px;
+}
+
+
+.tags{
+    box-sizing: border-box;
+    background: rgba($main-purple,.5);
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    width: 100%;
+
+    @media screen and (max-width: 610px){
+        width: 32%;
+        margin: 0;
+        float: right;
+    }
+
+    @media screen and (max-width: 430px){
+        width: 100%;
+        float: none;
+    }
+}
+
+.tag {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 13px;
+    font-family: "IBM Plex Sans";
+}
+
+
+.tag .dot {
+    display: inline-block;
+    background: $main-yellow;
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+:global(.portfolioimage) {
+    // border: 8px solid rgba($main-purple,.5);
+    margin: 0 auto;
+    background: rgba($main-purple,.5);
+    padding: 8px;
+    max-width: 400px;
+    font-size: 13px;
+    font-family: "IBM Plex Sans";
+}
+
+:global(.portfolioimage img){
+    width: 100%;
+}
+
+.main-image {
+    box-sizing: border-box;
+    width: 100%;
+    border: 8px solid rgba($main-purple,.5);
+
+    @media screen and (max-width: 610px){
+        width: 65%;
+        float: left;
+    }
+
+    @media screen and (max-width: 430px){
+        width: 100%;
+        float: none;
+        margin-bottom: 10px;
+    }
+}
+
+/* breakpoint: 510px */
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+.side {
+    padding: 20px;
+    box-sizing: border-box;
+    flex: .5 1 250px;
+
+    @media screen and (max-width: 610px){
+        margin-top: 10px;
+        flex-basis: 100%;
+        padding: 0;
+    }
+
+
+}
