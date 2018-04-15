@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
-import './Portfolio.css';
-import PortfolioItem from './PortfolioItem'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import Transitions from './Transitions.scss';
+import styles from './Portfolio.scss';
+import PortfolioItem from './PortfolioItem';
+import FlipMove from 'react-flip-move';
+import arrow from './arrow.png';
+import { Link } from 'react-router-dom';
 
 class Portfolio extends Component {
 
@@ -45,56 +46,71 @@ class Portfolio extends Component {
             }
         })
         .map(item => {
+
+            const tags = item.technologies.map(tag => {
+                return <div key={tag.id} className={styles.tag}><span className={styles.dot}></span>{tag.name}</div>
+            })
+            const videoButton = item.video ? <Link to={`/portfolio/${item.slug}/video`} className={styles.button}>Video</Link> : ""
+            const githubButton = item.github ? <a href={item.github} className={styles.button}>Github</a> : ""
+            const demoButton = item.demo ? <a href={item.demo} className={styles.button}>Live Site</a> : ""
+
             return (
-                <CSSTransition
-                    timeout={1000}
-                    classNames={{
-                        appear: Transitions.appear,
-                        appearActive: Transitions.appearActive,
-                        enter: Transitions.enter,
-                        enterActive: Transitions.enterActive,
-                        exit: Transitions.exit,
-                        exitActive: Transitions.exitActive
-                    }}
-                    key={item.id}
-                >
-                    <PortfolioItem
-                        key={item.id}
-                        id={item.id} 
-                        name={item.name} 
-                        description={item.description} 
-                        github={item.github} 
-                        demo={item.demo} 
-                        img={item.img_url} 
-                        tags={item.technologies}
-                    />
-                </CSSTransition>
+                <div key={item.id} className={styles.portfolioItem}>
+                    <div className={styles.portfolioInner}> 
+                        <div className={styles.portfolioItemLabel}>
+                            {item.name}
+                        </div>
+   
+                        <div style={{ backgroundImage: `url(${item.img_url})` }} className={styles.portfolioBackground}>
+                        
+                        </div>
+
+                        <div className={styles.portfolioItemInfo}>
+                            <div className={styles.portfolioItemDescription}>
+                            {item.description}
+                            <div className={styles.buttons}>
+                                <Link to={`/portfolio/${item.slug}`} className={styles.button}>Details</Link>
+                                {videoButton}
+                                {githubButton}
+                                {demoButton}
+                            </div>
+                            </div>
+                            <div className={styles.portfolioItemTags}>
+                                {tags}
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
             )
         })
 
     return (
-      <div id="portfolio-container">
-          <p>Here's a portfolio.
-              In this introduction section, I'll want to describe it a bit,
-              and include a dropdown to filter.
-          </p>
+      <div className="content-container">
 
-          <div className="category-picker">
-            <select value={this.state.filter} onChange={this.handleChange}>
-                <option value="">Everything</option>
-                <option value="Rails">Rails</option>
-                <option value="JavaScript">JavaScript</option>
-                <option value="React">React</option>
-            </select>
+          <div className={styles.categoryPickerOuter}>
+            <span>Filter projects:</span>
+            <div className={styles.categoryPicker} style={{backgroundImage: `url(${arrow})`}}>
+                <select value={this.state.filter} onChange={this.handleChange}>
+                    <option value="">Everything</option>
+                    <option value="Rails">Rails</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="React">React</option>
+                </select>
+            </div>
           </div>
 
-          <p>
-              Tags: grey text at bottom of portfolio item, with color coded dots so that
-              all tags that are the same have the same color?
-          </p>
-        <TransitionGroup id="portfolio-grid-container">
-            {portfolioItems}
-        </TransitionGroup>
+
+        <div>
+            <FlipMove 
+                id={styles.portfolioGridContainer}
+                duration={400}
+                staggerDurationBy="150"
+            >
+              {portfolioItems}
+            </FlipMove>
+        </div>
       </div>
     );
   }
