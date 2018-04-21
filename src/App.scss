@@ -1,0 +1,99 @@
+@import "./variables.scss";
+
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Serif");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans");
+@import url("https://fonts.googleapis.com/css?family=Lily+Script+One");
+
+:global(body) {
+  color: rgb(255, 252, 235);
+  font-family: "IBM Plex Serif";
+}
+
+/* purple color - $9f3f50 */
+/* YELLOW - faf284 */
+
+:global(.content-container) {
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  right: 30px;
+  padding: inherit;
+}
+
+:global(.content-container a) {
+  color: #ffdf93;
+  text-decoration: none;
+  background-image: linear-gradient(
+    120deg,
+    rgba(160, 63, 80, 0.8) 0%,
+    rgba(160, 63, 80, 0.8) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  text-shadow: 1px 1px 1px rgba(160, 63, 80, 0.1);
+  transition: background-size 0.25s ease-in, color 0.25s ease-in;
+}
+
+:global(.content-container a:hover) {
+  color: #faf284;
+  background-size: 100% 88%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(160, 63, 80, 0.5) 0%,
+    rgba(160, 63, 80, 0.5) 100%
+  );
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #c9505a;
+  /* background-color: rgb(200, 137, 20); */
+  background-color: #c9505a;
+  background: linear-gradient(#ac3969, #c54f3d);
+  z-index: -1;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 30px;
+  position: relative;
+}
+
+:global(h2) {
+  font-family: "IBM Plex Serif";
+  font-size: 40px;
+  font-weight: bold;
+  color: #ffda83;
+  line-height: 1;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+:global(h3) {
+  font-family: "Lily Script One";
+  font-weight: normal;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 35px;
+  margin: 10px 0;
+}
+
+:global(h4) {
+  font-family: "Lily Script One";
+  font-weight: normal;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 25px;
+  margin: 10px 0;
+  color: $main-yellow;
+}
+
+@media screen and (max-width: 450px) {
+  :global(.content-container) {
+    top: 120px;
+  }
+}
