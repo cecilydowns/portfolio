@@ -2,7 +2,7 @@
     opacity: 0.01;
     
     &.enterActive {
-      transition: opacity 0.5s ease-in, transform 0.5s;
+      transition: opacity 0.25s ease-in, transform 0.25s;
       opacity: 1;
     }
   }
@@ -11,7 +11,7 @@
     opacity: 1;
 
     &.exitActive {
-        transition: opacity 0.5s ease-in, transform 0.5s;
+        transition: opacity 0.25s ease-in, transform 0.25s;
         opacity: 0.01;
     }
 }
@@ -20,7 +20,7 @@
     opacity: 0.01;
 
     &.appearActive {
-        transition: all 0.5s ease-in;
+        transition: all 0.25s ease-in;
         opacity: 1;
     }
 }
