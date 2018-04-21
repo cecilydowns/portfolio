@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import styles from './App.scss';
 import Particles from 'react-particles-js';
 
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -10,7 +10,9 @@ import Home from './components/Home/Home'
 import Portfolio from './components/Portfolio/Portfolio'
 import About from './components/About/About'
 import Contact from './components/Contact/Contact'
-import PortfolioItem from './components/PortfolioItem/PortfolioItem'
+import Project from './components/Project/Project'
+import Video from './components/Video/Video'
+import NotFound from './components/NotFound'
 
 import ContactTemp from './components/ContactTemp/Contact'
 
@@ -23,7 +25,7 @@ class App extends Component {
     return (
       <div>
         <Route render={({ location }) => (
-          <div className='container'>
+          <div className={styles.container}>
           <Navbar />
           <div>
             <TransitionGroup>
@@ -44,7 +46,9 @@ class App extends Component {
                     <Route exact path='/about' component={About} />
                     <Route exact path='/contact' component={ContactTemp} />
                     <Route exact path='/contactform' component={Contact} />
-                    <Route path='/portfolio/:slug' component={PortfolioItem}  />
+                    <Route exact path='/portfolio/:slug' component={Project}  />
+                    <Route exact path='/portfolio/:slug/video' component={Video}  />
+                    <Route component={NotFound} />
                 </Switch>         
               </CSSTransition>
             </TransitionGroup>
@@ -56,7 +60,7 @@ class App extends Component {
         />
                 
           <Particles 
-              className="particles" params={{
+              className={styles.particles} params={{
                 particles: {
                   number: {
                     value: 7,
