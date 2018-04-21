@@ -1,0 +1,83 @@
+@import '../../variables.scss';
+
+#home-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#message {
+    flex: 1;
+    margin-right: 25px;
+    @media screen and (max-width: 740px){
+        flex-basis: 100%;
+        margin-right: 0;
+    }
+}
+
+#side {
+    flex: 1;
+    margin-left: 25px;
+    @media screen and (max-width: 740px){
+        flex-basis: 100%;
+        margin-left: 0;
+    }
+}
+
+
+
+
+
+.post {
+   margin-bottom: 20px;
+   font-size: 20px;
+   opacity: 0;
+   transform: translateY(-10px);
+
+   @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+        animation: loadposts 0.25s 1 forwards;
+        animation-delay: 0.04s * $i;
+    }
+}
+
+
+
+}
+
+.tag {
+    display: inline-block;
+    margin-right: 7px;
+    // border: 1px solid #d9827d;
+    // padding: 1px 3px;
+    // border-radius: 3px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    background: rgba($main-yellow,.7);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 1px 3px;
+
+}
+
+.post-info {
+    font-size: 13px;
+    font-family: "IBM Plex Sans";
+    display: block;
+    vertical-align: middle;
+}
+
+
+
+@keyframes loadposts {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
