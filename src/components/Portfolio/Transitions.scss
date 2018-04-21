@@ -1,6 +1,6 @@
 .enter {
     opacity: 0.01;
-    transform: rotateY(90deg);
+    transform: scale(0.1);
     
     &.enterActive {
       transition: opacity 0.5s ease-in, transform 0.5s;
@@ -15,7 +15,7 @@
     &.exitActive {
         transition: opacity 0.5s ease-in, transform 0.5s;
         opacity: 0.01;
-        transform: rotateY(90deg);
+        transform: scale(0.1);
     }
 }
 
