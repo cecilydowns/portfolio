@@ -19,7 +19,7 @@ const Post = (props) => {
     return (
             <div className={styles.post}>
                 <div>
-                    <a href={`http://cecilycodes.com${props.url}`}>
+                    <a href={`https://cecilycodes.com${props.url}`}>
                         {props.title}
                     </a>
                 </div>
