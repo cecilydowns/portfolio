@@ -25,7 +25,7 @@ class About extends Component {
 
         <div className={styles.flexContainerBottom}>
             <div className={styles.skillsContainer}>
-              <h3 className={styles.cursive}>Technical Skills</h3>
+              <h3>Technical Skills</h3>
               <ul className={styles.skills}>
                 <li><span className={styles.dot}></span>HTML5</li>
                 <li><span className={styles.dot}></span>CSS3</li>
@@ -40,8 +40,8 @@ class About extends Component {
             </div>
 
              <div className={styles.resumeContainer}>
-              <h3 className={styles.cursive}>Resume</h3>
-              <img src={resume} alt="Resume" className={styles.resume} />
+              <h3>Resume</h3>
+              <a href="http://static.cecilydowns.com/resume.pdf" target="_blank" rel="noopener noreferrer nofollow"><img src={resume} alt="Resume" className={styles.resume} /></a>
             </div>
 
           </div>

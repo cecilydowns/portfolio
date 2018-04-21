@@ -60,7 +60,7 @@ class Contact extends Component {
 
   render() {
     return (
-      <div id="contact-container">
+      <div className="content-container" id="contact-container">
                 <form onSubmit={this.handleSubmit}>
 
                     {this.state.submitted ? <h2 className="subhead">Submitted!</h2> :
@@ -84,7 +84,7 @@ class Contact extends Component {
                       <div className="dot"></div>
                     </div>
 
-                      <input type="submit" />
+                      <input type="submit" className="button" />
                     </div>
                     }
                 </form>
