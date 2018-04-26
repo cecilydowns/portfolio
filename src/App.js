@@ -14,8 +14,6 @@ import Project from './components/Project/Project'
 import Video from './components/Video/Video'
 import NotFound from './components/NotFound'
 
-import ContactTemp from './components/ContactTemp/Contact'
-
 import RouterTransitions from './RouterTransitions.scss'
 
 import Navbar from './components/Navbar/Navbar'
@@ -44,8 +42,7 @@ class App extends Component {
                     <Route exact path='/' component={Home} />
                     <Route exact path='/portfolio' component={Portfolio} />
                     <Route exact path='/about' component={About} />
-                    <Route exact path='/contact' component={ContactTemp} />
-                    <Route exact path='/contactform' component={Contact} />
+                    <Route exact path='/contact' component={Contact} />
                     <Route exact path='/portfolio/:slug' component={Project}  />
                     <Route exact path='/portfolio/:slug/video' component={Video}  />
                     <Route component={NotFound} />
