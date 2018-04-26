@@ -1,186 +1,183 @@
-@import '../../variables.scss';
-
+@import "../../variables.scss";
 
 #portfolioGridContainer {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-bottom: 30px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 30px;
 
-    @media screen and (max-width: 1000px){
-        grid-template-columns: 1fr 1fr
-    }
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
-    @media screen and (max-width: 650px){
-      grid-template-columns: 1fr
-    }
-  
+  @media screen and (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
 }
-
 
 .portfolio-item {
-    position: relative;
-    background: $main-purple;
-    color: #000;
-    border-radius: 2px;
-    height: 250px;
-    margin: 1%;
-    width: 31%;
-    float: left;
+  position: relative;
+  background: $main-purple;
+  color: #000;
+  border-radius: 2px;
+  height: 250px;
+  margin: 1%;
+  width: 31%;
+  float: left;
+
+  @media screen and (max-width: 1000px) {
+    width: 48%;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: 100%;
+  }
 }
 
-
-@supports (display:grid) {
-    .portfolio-item {
-      width: auto;
-      margin: 0;
-    }
+@supports (display: grid) {
+  .portfolio-item {
+    width: auto;
+    margin: 0;
+  }
 }
-
 
 .portfolio-inner {
-    position: relative;
-    display: inline-block;
-    transition: transform 0.2s;
-    box-shadow: 1px 1px 8px rgba(0,0,0,0.05);
-    border-bottom: 3px solid $main-purple;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 4px;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.2s;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.05);
+  border-bottom: 3px solid $main-purple;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
 }
 
-.portfolio-item:hover > .portfolio-inner, .portfolio-item:active > .portfolio-inner {
-    transform: scale(1.05);
+.portfolio-item:hover > .portfolio-inner,
+.portfolio-item:active > .portfolio-inner {
+  transform: scale(1.05);
 }
 
 .portfolio-background {
-    background-size: cover;
-    width: 100%;
-    height: 210px;
+  background-size: cover;
+  width: 100%;
+  height: 210px;
 }
-
-
 
 .portfolio-item-label {
-    position: relative;
-    background: $main-purple;
-    color: #fff;
-    padding: 10px;
-    transition: all 0.25s;
-    box-shadow: 0px 0px 4px rgba(0,0,0,0.1);
-    font-size: 20px;
-    font-family: "IBM Plex Serif";
-    font-weight: bold;
-    // text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
-    z-index: 10;
+  position: relative;
+  background: $main-purple;
+  color: #fff;
+  padding: 10px;
+  transition: all 0.25s;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-family: "IBM Plex Serif";
+  font-weight: bold;
+  // text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+  z-index: 10;
 }
-
 
 .portfolio-item-info {
-    position: absolute;
-    height: 220px;
-    bottom: 180px;
-    background: rgba(#fff,.9);
-    color: #000;
-    z-index: 5;
-    opacity: 0;
-    transition: all 0.25s;
+  position: absolute;
+  height: 220px;
+  bottom: 180px;
+  background: rgba(#fff, 0.9);
+  color: #000;
+  z-index: 5;
+  opacity: 0;
+  transition: all 0.25s;
 }
 
-.portfolio-item:hover .portfolio-item-info, .portfolio-item:active .portfolio-item-info {
-    opacity: 1;
-    transform: translateY(180px)
+.portfolio-item:hover .portfolio-item-info,
+.portfolio-item:active .portfolio-item-info {
+  opacity: 1;
+  transform: translateY(180px);
 }
 
 .buttons {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 a.button {
-    display: inline-block;
-    background: $main-yellow;
-    color: #000;
-    font-family: "IBM Plex Sans";
-    font-size: 14px;
-    font-weight: bold;
-    padding: 7px;
-    border-radius: 4px;
-    margin-right: 10px;
-    text-shadow: none;
-    transition: all 0.1s;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  display: inline-block;
+  background: $main-yellow;
+  color: #000;
+  font-family: "IBM Plex Sans";
+  font-size: 14px;
+  font-weight: bold;
+  padding: 7px;
+  border-radius: 4px;
+  margin-right: 10px;
+  text-shadow: none;
+  transition: all 0.1s;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 a.button:hover {
-    color: #000;
-    background: darken($main-yellow,5);
+  color: #000;
+  background: darken($main-yellow, 5);
 }
 
-
 .portfolio-item-description {
-    padding: 20px 10px;
-    font-size: 15px;
+  padding: 20px 10px;
+  font-size: 15px;
 }
 
 .portfolio-item-tags {
-    background: rgba($main-purple,.8);
-    border-radius: 4px;
-    color: #fff;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    font-family: "IBM Plex Sans";
-    font-size: 13px;
-    padding: 10px;
+  background: rgba($main-purple, 0.8);
+  border-radius: 4px;
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  font-family: "IBM Plex Sans";
+  font-size: 13px;
+  padding: 10px;
 }
-
-
 
 .tag {
-    display: inline-block;
-    margin-right: 15px;
+  display: inline-block;
+  margin-right: 15px;
 }
-
 
 .tag .dot {
-    display: inline-block;
-    background: $main-yellow;
-    width: 8px;
-    height: 8px;
-    border-radius: 10px;
-    margin-right: 5px;
+  display: inline-block;
+  background: $main-yellow;
+  width: 8px;
+  height: 8px;
+  border-radius: 10px;
+  margin-right: 5px;
 }
 
-
 .category-picker-outer {
-    margin-bottom: 20px;
-    display: inline-block;
+  margin-bottom: 20px;
+  display: inline-block;
 }
 
 .category-picker-outer span {
-    font-family: "IBM Plex Sans";
-    margin-bottom: 2px;
-    font-size: 13px;
-    font-weight: bold;
+  font-family: "IBM Plex Sans";
+  margin-bottom: 2px;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .category-picker {
-    background: no-repeat 96% 50%;
-    background-size: 15px;
-    background-color: $main-yellow;
-    border-radius: 4px;
-    height: 35px;
-    overflow: hidden;
-    width: 240px;
- }
- 
- .category-picker select {
-    background: transparent;
-    border: none;
-    font-size: 16px;
-    height: 35px;
-    padding: 5px;
-    width: 268px;
-    outline: none;
+  background: no-repeat 96% 50%;
+  background-size: 15px;
+  background-color: $main-yellow;
+  border-radius: 4px;
+  height: 35px;
+  overflow: hidden;
+  width: 240px;
+}
+
+.category-picker select {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  height: 35px;
+  padding: 5px;
+  width: 268px;
+  outline: none;
 }
